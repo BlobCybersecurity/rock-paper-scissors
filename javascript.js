@@ -55,12 +55,44 @@ function getHumanChoice() {
 }
 
 
+function incrementHumScore() {
+    return humanScore + 1;
+}
 
+function incrementCompScore() {
+    return computerScore + 1;
+}
 
 
 // logic to play a round
 
-function playRound() {
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "rock") {
+        console.log("Draw! Rock is the same as Rock.")
+    } else if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "paper") {
+        console.log("Computer Wins! Paper beats rock.");
+        incrementCompScore();
+    } else if (humanChoice.toLowerCase() === "rock" && computerChoice.toLowerCase() === "scissors") {
+        console.log("Human wins! Rock beats scissors.")
+        incrementHumScore();
+    } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "paper") {
+        console.log("Draw! Paper is the same as paper.")
+    } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "rock") {
+        console.log("Human wins! Paper beats rock.") 
+        incrementHumScore();
+    } else if (humanChoice.toLowerCase() === "paper" && computerChoice.toLowerCase() === "scissors") {
+        console.log("Computer wins! Scissors beats paper.")
+        incrementCompScore();
+    } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "scissors") {
+        console.log("Draw! Scissors is the same as scissors.")
+    } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "paper") {
+        console.log("Human wins! Scissors beats paper.") 
+        incrementHumScore();
+    } else if (humanChoice.toLowerCase() === "scissors" && computerChoice.toLowerCase() === "rock") {
+        console.log("Computer wins! Rock beats scissors.")
+        incrementCompScore();
+    }
+        
     
 }
 
