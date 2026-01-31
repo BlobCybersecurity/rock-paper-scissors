@@ -1,14 +1,4 @@
-
-
-
-
-
- 
 function getComputerChoice() {
-    
-    
-    
-    
     let result = Math.floor(Math.random() * 3)
 
     if (result === 0) { 
@@ -18,21 +8,14 @@ function getComputerChoice() {
     } else if (result === 2) {
         return "scissors"
     } else {
-        console.log("Couldnt return any value")
+        console.log("Couldn't return any value")
     }
     return result;
-    
-    
-    
 }
 
 
 function getHumanChoice() {
     let question = prompt("What would you like to choose? Rock Paper or Scissors: ").toLowerCase()
-
-
-
-
     if (question === "rock") {
         return "rock"
     } else if (question === "paper") {
@@ -44,54 +27,13 @@ function getHumanChoice() {
         return "Invalid value, please try again."
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-    
+ 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-
     let winner;
 
-    
-
-
     function playRound(humanChoice, computerChoice) {
-
-        
-        
-
-
-
-
-
-        
-
-
-
-
         if (humanChoice.toLowerCase() === "rock" && computerChoice === "rock") {
             console.log("Draw! Rock is the same as Rock.")
         } else if (humanChoice.toLowerCase() === "rock" && computerChoice === "paper") {
@@ -117,17 +59,12 @@ function playGame() {
             console.log("Computer wins! Rock beats scissors.")
             computerScore += 1
         }
-
-        
-
-        
     }
-
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
+    // console.log(playRound(getHumanChoice(), getComputerChoice()));
+    // console.log(playRound(getHumanChoice(), getComputerChoice()));
+    // console.log(playRound(getHumanChoice(), getComputerChoice()));
+    // console.log(playRound(getHumanChoice(), getComputerChoice()));
+    // console.log(playRound(getHumanChoice(), getComputerChoice()));
 
     let finalHuman = humanScore
     let finalComputer = computerScore
@@ -141,22 +78,11 @@ function playGame() {
     } else if (finalComputer > finalHuman) {
         winner = "Computer"
     }
-    
 
     console.log("The final result is " + humanScore, computerScore);
     console.log("The winner is, " + winner);
-
-    
     return;
-
-    
 }
-
-
-
-
-
-
 playGame();
 
 
