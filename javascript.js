@@ -1,4 +1,8 @@
 
+let humanScore = 0;
+let computerScore = 0;
+let rounds = 0;
+
 function getComputerChoice() {
     let result = Math.floor(Math.random() * 3)
 
@@ -14,23 +18,7 @@ function getComputerChoice() {
     return result;
 }
 
-
-function getHumanChoice() {
-    const rock = document.querySelector(".Rock")
-    
-    const scissors = document.querySelector(".Scissors")
-    const paper = document.querySelector(".Paper")
-
-    rock.onclick = () => "rock" 
-    
-    scissors.onclick = () => "scissors"
-
-    paper.onclick = () => "paper"
-      
-    
-}
-
-function playRound(humanChoice, computerChoice) {
+ function playRound(humanChoice, computerChoice) {
         if (humanChoice.toLowerCase() === "rock" && computerChoice === "rock") {
         } else if (humanChoice.toLowerCase() === "rock" && computerChoice === "paper") {
             computerScore += 1
@@ -48,35 +36,68 @@ function playRound(humanChoice, computerChoice) {
             computerScore += 1
         }
 }
- 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    let winner;
-
-    
 
 
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-
-    
-    
+function getResults() {
    
-    let finalHuman = humanScore;
-    let finalComputer = computerScore;
+    const rock = document.querySelector(".Rock")
+    
+    const scissors = document.querySelector(".Scissors")
+    const paper = document.querySelector(".Paper")
 
-     if (finalHuman > finalComputer) {
-        winner = "Human"
-    } else if (finalComputer > finalHuman) {
-        winner = "Computer"
+    rock.onclick = () => {
+        playRound("rock", getComputerChoice())
+        rounds += 1
     }
     
-    const results = document.querySelector("results")
-    results.textContent = `Final Human Value: ${finalHuman} || Final Computer Value: ${finalComputer}, Winner: ${winner}`
+    scissors.onclick = () => {
+        playRound("scissors", getComputerChoice())
+        rounds += 1
+    }
+
+    paper.onclick = () => {
+        playRound("paper", getComputerChoice())
+        rounds += 1
+    }
+
+    
+    
+}
+
+
+ 
+function playGame() {
+    
+    let winner;
+
+   
+    
+
+
+        
+
+    
+    if (rounds === "5") {
+        
+        let finalHuman = humanScore;
+        let finalComputer = computerScore;
+
+        if (finalHuman > finalComputer) {
+        winner = "Human"
+        } else if (finalComputer > finalHuman) {
+        winner = "Computer"
+        }
+
+         const results = document.querySelector(".results")
+        results.textContent = `Final Human Value: ${finalHuman} || Final Computer Value: ${finalComputer}, Winner: ${winner}`
+    }
+
+   
+    
+   
+    
+   
+   
     return;
 }
 playGame();
