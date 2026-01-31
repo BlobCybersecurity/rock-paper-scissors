@@ -37,47 +37,9 @@ function getComputerChoice() {
         }
 }
 
-
-function getResults() {
-   
-    const rock = document.querySelector(".Rock")
-    
-    const scissors = document.querySelector(".Scissors")
-    const paper = document.querySelector(".Paper")
-
-    rock.onclick = () => {
-        playRound("rock", getComputerChoice())
-        rounds += 1
-    }
-    
-    scissors.onclick = () => {
-        playRound("scissors", getComputerChoice())
-        rounds += 1
-    }
-
-    paper.onclick = () => {
-        playRound("paper", getComputerChoice())
-        rounds += 1
-    }
-
-    
-    
-}
-
-
- 
 function playGame() {
-    
     let winner;
-
-   
     
-
-
-        
-
-    
-    if (rounds === "5") {
         
         let finalHuman = humanScore;
         let finalComputer = computerScore;
@@ -90,17 +52,41 @@ function playGame() {
 
          const results = document.querySelector(".results")
         results.textContent = `Final Human Value: ${finalHuman} || Final Computer Value: ${finalComputer}, Winner: ${winner}`
-    }
-
-   
     
-   
-    
-   
-   
     return;
 }
-playGame();
+
+function getResults() {
+    const rock = document.querySelector(".Rock")
+    const scissors = document.querySelector(".Scissors")
+    const paper = document.querySelector(".Paper")
+    rock.onclick = () => {
+        playRound("rock", getComputerChoice())
+        rounds += 1
+        if (rounds === 5) {
+            playGame()
+        }
+    }
+    scissors.onclick = () => {
+        playRound("scissors", getComputerChoice())
+        rounds += 1
+        if (rounds === 5) {
+            playGame()
+        }
+    }
+    paper.onclick = () => {
+        playRound("paper", getComputerChoice())
+        rounds += 1
+        if (rounds === 5) {
+            playGame()
+        }
+    }
+}
+
+
+ 
+
+
 
 
 
