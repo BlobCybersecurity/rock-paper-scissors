@@ -37,24 +37,7 @@ function getComputerChoice() {
         }
 }
 
-function playGame() {
-    let winner;
-    
-        
-        let finalHuman = humanScore;
-        let finalComputer = computerScore;
 
-        if (finalHuman > finalComputer) {
-        winner = "Human"
-        } else if (finalComputer > finalHuman) {
-        winner = "Computer"
-        }
-
-         const results = document.querySelector(".results")
-        results.textContent = `Final Human Value: ${finalHuman} || Final Computer Value: ${finalComputer}, Winner: ${winner}`
-    
-    return;
-}
 
 function getResults() {
     const rock = document.querySelector(".Rock")
@@ -82,6 +65,27 @@ function getResults() {
         }
     }
 }
+
+function playGame() {
+    let winner;
+    
+        
+        let finalHuman = humanScore;
+        let finalComputer = computerScore;
+
+        if (finalHuman > finalComputer) {
+        winner = "Human"
+        } else if (finalComputer > finalHuman) {
+        winner = "Computer"
+        }
+
+         const results = document.querySelector(".results")
+        results.textContent = `Final Human Value: ${finalHuman} || Final Computer Value: ${finalComputer}, Winner: ${winner}`
+    
+    return;
+}
+
+getResults()
 
 
  
